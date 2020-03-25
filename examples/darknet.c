@@ -575,9 +575,10 @@ int main()
         }
     }
 */
-    for(int i=0; i<n_net; i++){
-        pthread_join(networkArray_des[i], NULL);
-        pthread_join(networkArray_res[i], NULL);
+
+//    for(int i=0; i<n_net; i++){
+//        pthread_join(networkArray_des[i], NULL);
+//        pthread_join(networkArray_res[i], NULL);
   //      pthread_join(networkArray_vgg[i], NULL);
   //      pthread_join(networkArray_alex[i], NULL);
     } 
