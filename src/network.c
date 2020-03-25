@@ -920,7 +920,7 @@ void forward_network_gpu(network *netp)
     for(i = 0; i < net.n; ++i){
         net.index = i;
         layer l = net.layers[i];
-    	fprintf(stderr, "net - %d /layerstart-%d - %s\n", net.index_n,i, get_layer_string(l.type));
+    	//fprintf(stderr, "net - %d /layerstart-%d - %s\n", net.index_n,i, get_layer_string(l.type));
         if(l.delta_gpu){
             fill_gpu(l.outputs * l.batch, 0, l.delta_gpu, 1);
         }
