@@ -518,8 +518,8 @@ int main()
         net_input_des[i]->names = names;
         net_input_des[i]->netName = denseName;
 
-	    printf(" It's turn for des i = %d\n",i);
     #ifdef THREAD
+	    printf(" It's turn for des i = %d\n",i);
         if(pthread_create(&networkArray_des[i], NULL,(void *)predict_classifier2, net_input_des[i])<0){
             perror("thread error");
             exit(0);
@@ -535,8 +535,8 @@ int main()
 	    net_input_res[i]->input_path = input;
         net_input_res[i]->names = names;
         net_input_res[i]->netName = resName;
-	    printf(" It's turn for res i = %d\n",i);
     #ifdef THREAD
+	    printf(" It's turn for res i = %d\n",i);
       	if(pthread_create(&networkArray_res[i], NULL, (void*)predict_classifier2,net_input_res[i])<0){
            perror("thread error");
            exit(0);
