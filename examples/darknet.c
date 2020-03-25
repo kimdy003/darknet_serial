@@ -581,7 +581,7 @@ int main()
 //        pthread_join(networkArray_res[i], NULL);
   //      pthread_join(networkArray_vgg[i], NULL);
   //      pthread_join(networkArray_alex[i], NULL);
-    } 
+   // } 
 #if 0
     //kmsjames 2020 0215
     for(i=0; i<THREAD_NUM_POOL;i++)
