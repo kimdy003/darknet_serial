@@ -519,10 +519,14 @@ int main()
         net_input_des[i]->netName = denseName;
 
 	    printf(" It's turn for des i = %d\n",i);
+    #ifdef THREAD
         if(pthread_create(&networkArray_des[i], NULL,(void *)predict_classifier2, net_input_des[i])<0){
             perror("thread error");
             exit(0);
         }
+    #else
+        predict_classifier2(net_input_des[i]);
+    #endif
     }
 
     for(int i=0; i<n_net; i++){
@@ -531,12 +535,16 @@ int main()
 	    net_input_res[i]->input_path = input;
         net_input_res[i]->names = names;
         net_input_res[i]->netName = resName;
-
 	    printf(" It's turn for res i = %d\n",i);
+    #ifdef THREAD
       	if(pthread_create(&networkArray_res[i], NULL, (void*)predict_classifier2,net_input_res[i])<0){
            perror("thread error");
            exit(0);
           }
+    #else
+        predict_classifier2(net_input_res[i]);
+    #endif
+    
     }
 /*    
     for(int i=0; i<n_net; i++){
@@ -585,7 +593,7 @@ int main()
     free(mutex_t);
     free(cond_i);
     return 0;
-/*
+#if 0
     if (0 == strcmp(argv[1], "average")){
         average(argc, argv);
     } else if (0 == strcmp(argv[1], "yolo")){
@@ -664,6 +672,7 @@ int main()
         test_resize(argv[2]);
     } else {
         fprintf(stderr, "Not an option: %s\n", argv[1]);
-    }*/
+    }
+#endif
 }
 
